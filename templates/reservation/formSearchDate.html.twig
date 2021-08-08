@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}Recherche par date de vente{% endtrans %}
+{% endblock %}
+{% block body %}
+	<br>
+	<h2 class="h4">
+		{% trans %}Recherche des reservations par date{% endtrans %}
+	</h2>
+	<div id="d3">
+		{{ form_start(form) }}
+		<table class="table table-striped">
+			<tr>
+				<td>{% trans %}Date Minimum{% endtrans %}</td>
+				<td>{{ form_widget(form.minDate)}}</td>
+			</tr>
+			<tr>
+				<td>{% trans %}Date Maximum{% endtrans %}</td>
+				<td>{{ form_widget(form.maxDate,{'attr' : {'onChange':'this.form.submit()'} }) }}</td>
+
+			</tr>
+
+		</table>
+	</div>
+	{{ form_end(form) }}<br>
+	{% if form is not defined %}
+
+		{% else %}
+			{% if reservation|length == 0 %}
+				{% else %}
+					<div>
+						<center>
+							<button class="btn btn-primary">
+								<h3>Resultat :</h3>
+							</button>
+						</center>
+						<div class="reponse">
+							<table class="table table-dark ">
+								<thead>
+									<th width='5%'>{% trans %}id{% endtrans %}</th>
+									<th width='10%'>{% trans %}date de la reservation{% endtrans %}</th>
+									<th width='40%'>{% trans %}voiture reservée{% endtrans %}</th>
+
+								</thead>
+								{% for v in reservation %}
+									<tbody class="table-info ">
+										<td>{{v.id}}</td>
+										<td>{{v.dateReservation | date('d/m/Y')}}</td>
+										<td>
+											<table class="liste_article ">
+												<thead>
+													<th style="width: 35%; ">{% trans %}voiture{% endtrans %}</th>
+													<th>{% trans %}Prix location
+														{% endtrans %}</th>
+													<th>{% trans %}nombre jours{% endtrans %}</th>
+													<th>{% trans %}Montant{% endtrans %}</th>
+
+												</thead>
+												{% set somme = 0 %}
+
+
+												{% set pr = v.car.prixLoc * v.nbreJour %}
+
+
+												<tbody>
+													{% set somme = somme + pr %}
+													<td>{{v.car.nom}}</td>
+													<td>{{v.car.prixLoc}}</td>
+
+													<td>{{v.nbreJour}}</td>
+													<td>{{pr|number_format(2,',','')}}</td>
+												</tbody>
+
+											</table>
+										</td>
+
+									</tbody>
+								{% endfor %}
+
+							</table>
+						</div>
+					</div>
+			{% endif %}
+	{% endif %}<br>
+{% endblock %}

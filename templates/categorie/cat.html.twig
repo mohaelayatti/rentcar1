@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %} {% block title %} {% trans %}Ajouter une nouvelle Categorie{% endtrans %} {% endblock %} {% block body %}
+<br> {% for message in app.flashes('success') %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+
+<div class="container">
+    <h3 class="h4">{% trans %}Ajouter{% endtrans %}</h3>
+
+    <div class="form_reponse ">
+        <div>
+            {{ form_start(form) }} {{ form_errors(form) }}
+            <div>
+                {{ form_label(form.categorie, "Nom de la Categorie") }} {{ form_errors(form.categorie) }}
+                <div>
+                    {{ form_widget(form.categorie,{'attr' : {'onChange':'this.form.submit()'} }) }}
+                </div>
+            </div>
+
+            <div>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

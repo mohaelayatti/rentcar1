@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}liste voitures{% endtrans %}
+{% endblock %}
+{% block body %}
+	<br>
+	<div>
+		<center>
+			<button class="boutonarticle">
+				<h3 class="animate__animated animate__zoomIn">{% trans %}liste voitures{% endtrans %}</h3>
+			</button>
+		</center><br>
+		<div class="liste_article">
+
+			{% if cat |length == 0 %}
+				<h5 class="h3">aucun article enregistré</h5>
+
+			{% else %}
+				{% for cat in cat %}
+					{% if cat.cars|length == 0 %}
+						{% else %}
+							<h5 class="h4">{{cat.nomCategorie}}</h5>
+							<table class=" table table-dark">
+								<thead>
+
+									<th>{% trans %}Nom {% endtrans %}</th>
+									<th>{% trans %}Image{% endtrans %}</th>
+									<th>{% trans %}Prix Location{% endtrans %}</th>
+									<th>{% trans %}%Reduction{% endtrans %}</th>
+									<th>{% trans %}Modif{% endtrans %}</th>
+									<th>{% trans %}Supr{% endtrans %}</th>
+								</thead>
+
+								{% for car in cat.cars %}
+
+
+									<tbody>
+										<tr>
+											
+											<td>{{car.nom}}</td>
+											<td><img src="{{ asset( 'uploads/brochures/' ~ car.image) }} " alt="{{car.image }} " style="width:60px;height:50px "/>
+											</td>
+											<td>{{car.prixLoc}}</td>
+											<td>{{car.reduction}}
+												%</td>
+											<td>
+												<a href=" {{path( 'edit_car',{id:car.id})}} ">
+													<img src="{{ asset( 'images/edit.png' ) }} "/></a>
+											</td>
+											
+											<td>
+												<a href="{{path( 'delete_car',{id:car.id})}} " onclick="return confirm( '{% trans %}Vous etes sur de vouloir supprimer?{% endtrans %}') ">
+													<img src="{{ asset( 'images/delet.png' ) }} "/></a>
+											</td>
+										</tr>
+									</tbody>
+
+
+								{% endfor %}
+							{% endif %}
+						</table>
+
+
+					{% endfor %}{% endif %}
+				</div>
+			
+		</div>
+	{% endblock %}

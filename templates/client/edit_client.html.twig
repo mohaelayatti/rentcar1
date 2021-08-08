@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %} {% block title %} {% trans %}Modifier client{% endtrans %}{% endblock %} {% block body %}
+
+<div class="container"><br>
+    <h3 class="h2">{% trans %}Modifier client{% endtrans %}</h3>
+
+    <div class="form_reponse ">
+        <fieldset>
+            <legend class="legend1">{% trans %}client{% endtrans %}</legend>
+            {{ form_start(form) }}
+            <table>
+                <tr>
+                    <td>{{ form_label(form.nomClient, 'Nom Client:') }}</td>
+                    <td style="width:70%;">
+                        {{ form_widget(form.nomClient,{ 'attr': {'placeholder': "nom ou societé..."} }) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.adressClient, 'adress') }}</td>
+                    <td>
+                        {{ form_widget(form.adressClient,{ 'attr': {'placeholder': "adress.. "} }) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.telfClient, 'telephone') }}</td>
+                    <td>{{ form_widget(form.telfClient,{ 'attr': {'placeholder': "telphone.."} }) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.faxClient, 'fax') }}</td>
+                    <td>{{ form_widget(form.faxClient,{ 'attr': {'placeholder': "fax.. "} }) }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="b1" type="submit ">{% trans %}Enregistrer{% endtrans %}</button>
+                    </td>
+
+                </tr>{{ form_end(form) }}
+            </table>
+        </fieldset>
+        <br>
+    </div><br><br><br>
+</div><br><br> {% endblock %}

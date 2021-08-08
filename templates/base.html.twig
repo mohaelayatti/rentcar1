@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block stylesheets %}
+			<link href="{{asset('css/bootstrap.min.css' )}}" type="text/css" rel="stylesheet">
+
+			<link href="{{asset('css/animate.css' )}}" type="text/css" rel="stylesheet">
+			<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+			<link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+			<link
+			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
+			<!-- Google font -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+			<!-- Slick -->
+			<link type="text/css" rel="stylesheet" href="{{asset('css/slick.css' )}}"/>
+			<link
+			type="text/css" rel="stylesheet" href="{{asset('css/slick-theme.css' )}}"/>
+
+			<!-- nouislider -->
+			<link
+			type="text/css" rel="stylesheet" href="{{asset('css/nouislider.min.css' )}}"/>
+
+			<!-- Font Awesome Icon -->
+			<link
+			rel="stylesheet" href="{{asset('css/font-awesome.min.css' )}}">
+
+			<!-- Custom stlylesheet -->
+			<link type="text/css" rel="stylesheet" href="{{asset('css/style.css' )}}"/>
+		{% endblock %}
+
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="">
+				<img src="{{ asset('images/electro-jam1.png' ) }}"/></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href=""></a>
+			<div class="collapse navbar-collapse" id="navbarColor02">
+				<ul class="navbar-nav mr-auto">
+					<li class=" nav-item active">
+						<a class="nav-link " href="{{path( 'home')}} ">Acceuil</a>
+					</li>
+
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans %}Reservation{% endtrans %}</a>
+
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{path( 'new_reservation')}}">{% trans %}Ajouter une Reservation{% endtrans %}</a>
+
+							<a class="dropdown-item" href="{{path( 'liste_reservation')}}">{% trans %}Liste des reservations{% endtrans %}</a>
+
+
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{path( 'cherche')}}">{% trans %}Recherche reservation par date{% endtrans %}
+
+
+							</a>
+							<a class="dropdown-item" href="{{path( 'reservation_jour')}}">{% trans %}Recette Journaliere{% endtrans %}
+
+							</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans %}Voitures{% endtrans %}</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{path( 'ajout_car')}}">{% trans %}New voiture{% endtrans %}</a>
+
+							<a class="dropdown-item" href="{{path( 'liste_car')}}">{% trans %}Liste des voituress{% endtrans %}</a>
+
+						</div>
+					</li>
+
+					<li class="nav-item ">
+						<a class="nav-link " href="{{path( 'ajout_categorie')}}">{% trans %}Categorie{% endtrans %}</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans %}Client{% endtrans %}</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width: 300px;">
+							<a class="dropdown-item" href="{{path( 'ajout_client')}}">{% trans %}Ajouter client{% endtrans %}</a>
+
+							<a class="dropdown-item" href="{{path( 'liste_client')}}">{% trans %}Liste client{% endtrans %}</a>
+
+
+							<div class="dropdown-divider"></div>
+
+							<form action="chercheClient" method="post" class="form-inline my-2 my-lg-0">
+								<label style="margin-left: 15px;">Chercher Client</label>
+								<input name="nomClient" class="form-control mr-sm-1" style="width: 150px;margin-left: 5px;" type="text" placeholder="" onchange='this.form.submit()'>
+
+
+							</form>
+
+						</div>
+					</li>
+					<li class="nav-item "></li>
+					<li class="nav-item">
+						<a class="nav-link " href=""></a>
+						<span class="tooltip ">
+							Admin</span>
+					</li>
+					{% if not app.user %}
+
+						<li class="nav-item ">
+							<a class="nav-link " href="{{path('login')}}">{% trans %}S'authentifier{% endtrans %}</a>
+
+						</li>
+					{% else %}
+						<li class="nav-item ">
+							<a class="nav-link " href="{{path('logout')}}">
+								<img src="{{ asset('images/deconnexion.png' ) }} "/></a>
+
+						</li>
+
+					{% endif %}
+
+
+					<li class="nav-item ">
+						<a class="nav-link " href="#" id="a_heure">{{ "now"|date('d-M-Y') }}</a>
+
+					</li>
+					<li class="nav-item ">
+
+						<a class="nav-link " href="https://time.is/Marrakesh" id="time_is_link" rel="nofollow">
+							<span id="Marrakesh_z00d"></span>
+						</a>
+
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+		<div class="cont">
+			<div class="row">
+				<div class="col-6 col-md-3">
+					<div class="column_left">
+						<div class="card1">
+							<p>
+								{% trans %}Decouverte{% endtrans %}
+							</p>
+						</div>
+						<ul>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path( 'home')}}">Ma boutique</a>
+
+							</li>
+							<li></li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path( 'liste_reservation')}}">Global reservations</a>
+
+
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path('cherche')}}">chercher reservation</a>
+
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path('reservation_jour')}}">Recette du jour</a>
+
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path( 'liste_car')}}">Mes voitures</a>
+
+							</li>
+
+
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path('liste_client')}}">Mes clients</a>
+							</li>
+
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path('top_client')}}">Top Client</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="{{path('top_reservation')}}">
+
+									Top reservation</a>
+
+							</li>
+						</ul>
+					</div>
+					<div class="column_left">
+						<div class="card1">
+							<p>
+								{% trans %}Information{% endtrans %}
+							</p>
+						</div>
+
+						<ul>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="https://time.is/Marrakesh">Heure Actuelle</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="">Livraison</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="">Service Aprés Vente</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="#">Conditions génerales des ventes</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="#">A propos</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="#">Paiement sécurisé</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="column_left">
+						<div class="card1">
+							<p>
+								{% trans %}Suivez Nous{% endtrans %}
+							</p>
+						</div>
+
+						<ul class="left_ul">
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="">sur Facebook</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="">sur Twitter</a>
+							</li>
+							<li>
+								<i class="fas fa-arrow-right"></i>
+								<a href="">sur Google plus</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-12 col-md-9"> {% block body %}{% endblock %}
+					</div>
+				</div>
+
+			</div>
+			<section id="footer ">
+				<div>
+					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black ">
+						<p>
+							<u>
+								<a href="https://ayatheiteck.com/ ">Ayat-Heiteck</a>
+							</u>
+						</p>
+						<p class="h6 ">&copy All right Reversed.
+						</p>
+					</div>
+				</div>
+			</section>
+		</body>
+		{% block footer %}{% endblock %}
+		{% block javascripts %}
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+			<script src="{{asset( 'js/js.js' )}} "></script>
+			<script src="{{asset( 'js/jquery.min.js')}} "></script>
+			<script src="{{asset( 'js/bootstrap.min.js')}} "></script>
+			<script src="{{asset( 'js/slick.min.js')}} "></script>
+			<script src="{{asset( 'js/nouislider.min.js')}} "></script>
+			<script src="{{asset( 'js/jquery.zoom.min.js')}} "></script>
+			<script src="{{asset( 'js/main.js')}} "></script>
+			<script>
+				document.write(new Date().getFullYear());
+			</script>
+			<script src="//widget.time.is/t.js"></script>
+			<script>
+				time_is_widget.init({Marrakesh_z00d: {}});
+			</script>
+		{% endblock %}
+	</html>

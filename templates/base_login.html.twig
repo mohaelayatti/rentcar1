@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block stylesheets %}
+			<!-- Google font -->
+			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+			<link href="{{asset('css/bootstrap.min.css' )}}" type="text/css" rel="stylesheet">
+			<link
+			href="{{asset('css/animate.css' )}}" type="text/css" rel="stylesheet">
+			<!-- Slick -->
+			<link type="text/css" rel="stylesheet" href="{{asset('css/slick.css' )}}"/>
+			<link
+			type="text/css" rel="stylesheet" href="{{asset('css/slick-theme.css' )}}"/>
+			<!-- nouislider -->
+			<link
+			type="text/css" rel="stylesheet" href="{{asset('css/nouislider.min.css' )}}"/>
+			<!-- Font Awesome Icon -->
+			<link
+			rel="stylesheet" href="{{asset('css/font-awesome.min.css' )}}">
+			<!-- Custom stlylesheet -->
+			<link type="text/css" rel="stylesheet" href="{{asset('css/style.css' )}}"/>
+		{% endblock %}
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+	</head>
+
+	<body>
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div>
+					<div class="header-logo ">
+						<a href="# " class="logo ">
+							<img src="{{ asset( 'images/electro-jam1.png' ) }}" alt=" ">
+						</a>
+					</div>
+					<ul class="header-links pull-left">
+						<li>
+							<a href="#">
+								<i class="fa fa-phone"></i>
+								+0212-664-08-19-91
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<i class="fa fa-envelope-o"></i>
+								electrojm@gmail.com
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<i class="fa fa-map-marker"></i>
+								Douar Ouled Belaaguid Ouahat Sidi Brahim Marrakech tel 08-08-53-79-94</a>
+						</li>
+
+						<li>
+							<a href="{{ path( 'login' ) }}">
+								<img src="{{ asset( 'images/conn.png' ) }}">
+								Se connecter</a>
+						</li>
+
+						<li>
+							<a href="#" class="a_heure">{{ "now"|date('d-M-Y') }}</a>
+							<a href="https://time.is/Marrakesh" id="time_is_link" rel="nofollow">
+								<span id="Marrakesh_z00d" style="font-size:14px;color: palegreen;background-color: rgb(124, 116, 69);padding: 2px;"></span>
+							</a>
+
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+		</header>
+		<!-- /HEADER -->
+		{% block body %}{% endblock %}
+		<footer id="footer ">
+			<div>
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-black ">
+					<p>
+						<u>
+							<a href="https://ayatheiteck.com/ ">Ayat-Heiteck</a>
+						</u>
+					</p>
+					<p class="h6 ">&copy All right Reversed.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+	{% block javascripts %}
+		<script src="{{asset('js/js.js')}}"></script>
+		<script src="{{asset('js/jquery.min.js')}} "></script>
+		<script src="{{asset('js/bootstrap.min.js')}} "></script>
+		<script src="{{asset('js/slick.min.js')}} "></script>
+		<script src="{{asset('js/nouislider.min.js')}} "></script>
+		<script src="{{asset('js/jquery.zoom.min.js')}} "></script>
+		<script src="{{asset('js/main.js')}} "></script>
+		<script src="//widget.time.is/t.js"></script>
+		<script>
+			time_is_widget.init({Marrakesh_z00d: {}});
+		</script>
+
+	{% endblock %}
+
+</html>

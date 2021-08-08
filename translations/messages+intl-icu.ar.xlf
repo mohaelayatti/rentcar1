@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="ar" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="eAKPvL9" resname="Article:">
+        <source>Article:</source>
+        <target>المنتوج:</target>
+      </trans-unit>
+      <trans-unit id="cdx0hz4" resname="Enregistrer">
+        <source>Enregistrer</source>
+        <target>تسجيل</target>
+      </trans-unit>
+      <trans-unit id="c4aHkJC" resname="Article bien Ajouté">
+        <source>Article bien Ajouté</source>
+        <target>تمت الاضافة</target>
+      </trans-unit>
+      <trans-unit id="de3pVOm" resname="Ajouter article">
+        <source>Ajouter article</source>
+        <target>اضافة منتوج جديد</target>
+      </trans-unit>
+      <trans-unit id="gnwZamB" resname="liste articles">
+        <source>liste articles</source>
+        <target>لائحة المنتوجات</target>
+      </trans-unit>
+      <trans-unit id="1PQek7g" resname="Chercher">
+        <source>Chercher</source>
+        <target>بحث</target>
+      </trans-unit>
+      <trans-unit id="JIP_GMC" resname="Article non disponible">
+        <source>Article non disponible</source>
+        <target>منتوج غير موجود</target>
+      </trans-unit>
+      <trans-unit id="1crefvM" resname="Stock">
+        <source>Stock</source>
+        <target>المخزون</target>
+      </trans-unit>
+      <trans-unit id="BWran84" resname="Vendue">
+        <source>Vendue</source>
+        <target>المباع</target>
+      </trans-unit>
+      <trans-unit id="utI9iYD" resname="Modifier article">
+        <source>Modifier article</source>
+        <target>تغيير المنتوج</target>
+      </trans-unit>
+      <trans-unit id="xttkBIN" resname="retour">
+        <source>retour</source>
+        <target>رجوع</target>
+      </trans-unit>
+      <trans-unit id="OXfTUpb" resname="Categorie">
+        <source>Categorie</source>
+        <target>الصنف</target>
+      </trans-unit>
+      <trans-unit id="Hg_kfhC" resname="id Article">
+        <source>id Article</source>
+        <target>رقم المنتوج</target>
+      </trans-unit>
+      <trans-unit id="RV6ywle" resname="Intitulé article">
+        <source>Intitulé article</source>
+        <target>اسم المنتوج</target>
+      </trans-unit>
+      <trans-unit id="GqTLC8y" resname="Image">
+        <source>Image</source>
+        <target>الصورة</target>
+      </trans-unit>
+      <trans-unit id="AB4kLUG" resname="Prix Achat">
+        <source>Prix Achat</source>
+        <target>ثمن الشراء</target>
+      </trans-unit>
+      <trans-unit id="r4FSY5D" resname="Qté globale">
+        <source>Qté globale</source>
+        <target>الكمية الكلية</target>
+      </trans-unit>
+      <trans-unit id="RkxP.QG" resname="Edit">
+        <source>Edit</source>
+        <target>تغيير</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>مسح</target>
+      </trans-unit>
+      <trans-unit id="jQ94Ca1" resname="aucune article dans la bd">
+        <source>aucune article dans la bd</source>
+        <target>لا يوجد اي منتوج في فاعدة البيانات</target>
+      </trans-unit>
+      <trans-unit id="Q7FR0ht" resname="Gestion Ventes">
+        <source>Gestion Ventes</source>
+        <target>تدبير المبيعات</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>استقبال</target>
+      </trans-unit>
+      <trans-unit id="9JgYXMF" resname="ajouter une vente">
+        <source>ajouter une vente</source>
+        <target>بيع جديد</target>
+      </trans-unit>
+      <trans-unit id="UVI2Pze" resname="liste des ventes">
+        <source>liste des ventes</source>
+        <target>لائحة المبيعات</target>
+      </trans-unit>
+      <trans-unit id="AX0J.p." resname="recherche vente par date">
+        <source>recherche vente par date</source>
+        <target>بيع في فترة محددة</target>
+      </trans-unit>
+      <trans-unit id="lk2Mv.5" resname="ajouter un Article">
+        <source>ajouter un Article</source>
+        <target>منتوج جديد</target>
+      </trans-unit>
+      <trans-unit id="RM2wxp7" resname="liste des articles">
+        <source>liste des articles</source>
+        <target>لائحة المنتوجات</target>
+      </trans-unit>
+      <trans-unit id="HbYK30D" resname="Article en stock">
+        <source>Article en stock</source>
+        <target>المخزون</target>
+      </trans-unit>
+      <trans-unit id="DHf_Cas" resname="Client">
+        <source>Client</source>
+        <target>الزبناء</target>
+      </trans-unit>
+      <trans-unit id="TAt9QJc" resname="ajouter client">
+        <source>ajouter client</source>
+        <target>زبون جديد</target>
+      </trans-unit>
+      <trans-unit id="05jhhm2" resname="liste client">
+        <source>liste client</source>
+        <target>لائحة الزبناء</target>
+      </trans-unit>
+      <trans-unit id="hDrAEUn" resname="Ok">
+        <source>Ok</source>
+        <target>بحث</target>
+      </trans-unit>
+      <trans-unit id="YdaVBBA" resname="Connexion">
+        <source>Connexion</source>
+        <target>رابط</target>
+      </trans-unit>
+      <trans-unit id="KvLeDAS" resname="ajouter User">
+        <source>ajouter User</source>
+        <target>اضافة مستعمل</target>
+      </trans-unit>
+      <trans-unit id="K3j0faY" resname="gestion vente!">
+        <source>gestion vente!</source>
+        <target>تدبير المبيعات</target>
+      </trans-unit>
+      <trans-unit id="FxOshME" resname="ventes">
+        <source>ventes</source>
+        <target>المبيعات</target>
+      </trans-unit>
+      <trans-unit id="rVyTXAm" resname="Articles">
+        <source>Articles</source>
+        <target>المنتوج</target>
+      </trans-unit>
+      <trans-unit id="wcIksDz" resname="Admin">
+        <source>Admin</source>
+        <target>مسير</target>
+      </trans-unit>
+      <trans-unit id="pANokHl" resname="ajouter vente">
+        <source>ajouter vente</source>
+        <target>اضافة عملية بيع</target>
+      </trans-unit>
+      <trans-unit id="nxp23pC" resname="Ajouter une Vente:">
+        <source>Ajouter une Vente:</source>
+        <target>اضافة عملية بيع</target>
+      </trans-unit>
+      <trans-unit id="u1kQuLO" resname="articles Vendus">
+        <source>articles Vendus</source>
+        <target>المنتوجات المباعة</target>
+      </trans-unit>
+      <trans-unit id="K8WG0um" resname="Si vous avez oulbliez le prix d'achat">
+        <source>Si vous avez oulbliez le prix d'achat</source>
+        <target>اذا نسيت ثمن الشراء </target>
+      </trans-unit>
+      <trans-unit id="ZzoyiGk" resname="clique ici">
+        <source>clique ici</source>
+        <target>انقر هنا</target>
+      </trans-unit>
+      <trans-unit id="AijTnA1" resname="pour saisir le prix vente">
+        <source>pour saisir le prix vente</source>
+        <target>لاجل تسجيل ثمن البيع</target>
+      </trans-unit>
+      <trans-unit id="3OMG0yM" resname="Prix achat">
+        <source>Prix achat</source>
+        <target> ثمن الشراء</target>
+      </trans-unit>
+      <trans-unit id="ssEkU20" resname="Nom">
+        <source>Nom</source>
+        <target>اسم المنتوج</target>
+      </trans-unit>
+      <trans-unit id="5yf3W8H" resname="liste">
+        <source>liste</source>
+        <target>لائحة المبيعات</target>
+      </trans-unit>
+      <trans-unit id="TB4N5My" resname="V e n t e s">
+        <source>V e n t e s</source>
+        <target>المبيعات</target>
+      </trans-unit>
+      <trans-unit id="khAFxWv" resname="n° id">
+        <source>n° id</source>
+        <target>رقم البيع</target>
+      </trans-unit>
+      <trans-unit id="Q6ei4jZ" resname="date de la vente">
+        <source>date de la vente</source>
+        <target>تاريخ البيع</target>
+      </trans-unit>
+      <trans-unit id="6FaBwx." resname="articles vendus">
+        <source>articles vendus</source>
+        <target>المنتوجات المباعة</target>
+      </trans-unit>
+      <trans-unit id="gJq2iBx" resname="recette">
+        <source>recette</source>
+        <target>معاملة</target>
+      </trans-unit>
+      <trans-unit id="HGMzUJ3" resname="show">
+        <source>show</source>
+        <target>تفحص</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>تغيير</target>
+      </trans-unit>
+      <trans-unit id="YZdZVQP" resname="delete">
+        <source>delete</source>
+        <target>مسح</target>
+      </trans-unit>
+      <trans-unit id="8Xb7hMP" resname="aucune vente">
+        <source>aucune vente</source>
+        <target>لا يوجد اية عملية البيع</target>
+      </trans-unit>
+      <trans-unit id="NjNYrdV" resname="aucun article">
+        <source>aucun article</source>
+        <target>لا يوجد اي منتوج</target>
+      </trans-unit>
+      <trans-unit id="cb_Qk1." resname="Reference">
+        <source>Reference</source>
+        <target>رقم استدلالي</target>
+      </trans-unit>
+      <trans-unit id="tGUbFNJ" resname="prix Unitaire">
+        <source>prix Unitaire</source>
+        <target>سعر الوحدة</target>
+      </trans-unit>
+      <trans-unit id="Q9MVUaG" resname="qte">
+        <source>qte</source>
+        <target>الكمية</target>
+      </trans-unit>
+      <trans-unit id="4g6neLx" resname="montant">
+        <source>montant</source>
+        <target>الثمن</target>
+      </trans-unit>
+      <trans-unit id="APnFM0V" resname="Ajouter">
+        <source>Ajouter</source>
+        <target>اضافة</target>
+      </trans-unit>
+      <trans-unit id="Axo5okF" resname="modifier une Vente:">
+        <source>modifier une Vente:</source>
+        <target>تغيير عملية بيع</target>
+      </trans-unit>
+      <trans-unit id="KFRaO0W" resname="show vente">
+        <source>show vente</source>
+        <target>تفحص</target>
+      </trans-unit>
+      <trans-unit id="IF.TKIi" resname="Detail Vente n°">
+        <source>Detail Vente n°</source>
+        <target>عملية البيع عدد:</target>
+      </trans-unit>
+      <trans-unit id="9oZRSFp" resname="en date du:">
+        <source>en date du:</source>
+        <target>تاريخ</target>
+      </trans-unit>
+      <trans-unit id="vhAntmF" resname="Aucune Vente!!">
+        <source>Aucune Vente!!</source>
+        <target>لا يوجد اية عملية للبيع</target>
+      </trans-unit>
+      <trans-unit id="s9fvRlA" resname="caracteristique technique">
+        <source>caracteristique technique</source>
+        <target>معلومات تقنية</target>
+      </trans-unit>
+      <trans-unit id="5RN3zAY" resname="Qte">
+        <source>Qte</source>
+        <target>الكمية</target>
+      </trans-unit>
+      <trans-unit id="HIrmLVV" resname="Prix vente">
+        <source>Prix vente</source>
+        <target>ثمن البيع</target>
+      </trans-unit>
+      <trans-unit id="OHQyNyT" resname="Chiffre Affaire">
+        <source>Chiffre Affaire</source>
+        <target>رقم المعاملة</target>
+      </trans-unit>
+      <trans-unit id="z9l3WX7" resname="Bénifice">
+        <source>Bénifice</source>
+        <target>الربح</target>
+      </trans-unit>
+      <trans-unit id="Z4zVCPO" resname="Nom Client:">
+        <source>Nom Client:</source>
+        <target>اسم الزبون</target>
+      </trans-unit>
+      <trans-unit id="JiGi70p" resname="Liste V e n t e s:">
+        <source>Liste V e n t e s:</source>
+        <target>لائحة المبيعات</target>
+      </trans-unit>
+      <trans-unit id="8faZ2Pi" resname="facturation">
+        <source>facturation</source>
+        <target>فوترة</target>
+      </trans-unit>
+      <trans-unit id="_18n1UV" resname="Detail">
+        <source>Detail</source>
+        <target>تفحص</target>
+      </trans-unit>
+      <trans-unit id="E_NjWum" resname="Liste Clients">
+        <source>Liste Clients</source>
+        <target>لائحة الزبناء</target>
+      </trans-unit>
+      <trans-unit id="pWFFJwz" resname="id">
+        <source>id</source>
+        <target>رقم الزبون</target>
+      </trans-unit>
+      <trans-unit id=".fQY8iP" resname="adress">
+        <source>adress</source>
+        <target>محل السكن او مقر الشركة</target>
+      </trans-unit>
+      <trans-unit id="czlyUVm" resname="telephone">
+        <source>telephone</source>
+        <target>رقم الهاتف</target>
+      </trans-unit>
+      <trans-unit id="SvTiF8B" resname="fax">
+        <source>fax</source>
+        <target>رقم الفاكس</target>
+      </trans-unit>
+      <trans-unit id="vfmvkPB" resname="intitulé Article">
+        <source>intitulé Article</source>
+        <target>اسم المنتوج</target>
+      </trans-unit>
+      <trans-unit id="bTlN_4z" resname="Recherche par date de vente">
+        <source>Recherche par date de vente</source>
+        <target>بحث  بتاريخ البيع</target>
+      </trans-unit>
+      <trans-unit id="GoYV_aa" resname="chercher">
+        <source>chercher</source>
+        <target>بحث</target>
+      </trans-unit>
+      <trans-unit id="ESOYctF" resname="total">
+        <source>total</source>
+        <target>المجموع</target>
+      </trans-unit>
+      <trans-unit id="7yOllAJ" resname="Retour">
+        <source>Retour</source>
+        <target>رجوع</target>
+      </trans-unit>
+      <trans-unit id="9jF9S2Y" resname="Ajouter une nouvelle Categorie">
+        <source>Ajouter une nouvelle Categorie</source>
+        <target>اضافة صنف جديد</target>
+      </trans-unit>
+      <trans-unit id="RWvtXqo" resname="Nom Categorie:">
+        <source>Nom Categorie:</source>
+        <target>اسم الصنف</target>
+      </trans-unit>
+      <trans-unit id="p3tZc6E" resname="nom d'une novelle categorie !!">
+        <source>nom d'une novelle categorie !!</source>
+        <target>اسم صنف جديد</target>
+      </trans-unit>
+      <trans-unit id="_P5d48I" resname="liste categorie">
+        <source>liste categorie</source>
+        <target>لائحة الاصناف</target>
+      </trans-unit>
+      <trans-unit id="M_B3jq." resname="id_cat">
+        <source>id_cat</source>
+        <target>رقم</target>
+      </trans-unit>
+      <trans-unit id="__3z.5h" resname="Modifier une categorie">
+        <source>Modifier une categorie</source>
+        <target>تغيير صنف</target>
+      </trans-unit>
+      <trans-unit id="6bS94Gu" resname="aucune categorie dans la bd">
+        <source>aucune categorie dans la bd</source>
+        <target>لا توجداي  صنف</target>
+      </trans-unit>
+      <trans-unit id="xFVBb4F" resname="Date Minimum">
+        <source>Date Minimum</source>
+        <target>تاريخ أدنى</target>
+      </trans-unit>
+      <trans-unit id="eyaidi7" resname="Date Maximum">
+        <source>Date Maximum</source>
+        <target>تاريخ أعلى</target>
+      </trans-unit>
+      <trans-unit id="z7GsDIB" resname="Inscription">
+        <source>Inscription</source>
+        <target>اضافة مستعمل جديد</target>
+      </trans-unit>
+      <trans-unit id="ttVcoyL" resname="liste utilisateurs">
+        <source>liste utilisateurs</source>
+        <target>لائحة المستعملين</target>
+      </trans-unit>
+      <trans-unit id="VlAPiTZ" resname="id Utilisateur">
+        <source>id Utilisateur</source>
+        <target>رقم المستعمل</target>
+      </trans-unit>
+      <trans-unit id="seQt2ph" resname="Nom Utilisateur">
+        <source>Nom Utilisateur</source>
+        <target>اسم المستعمل</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>البريد الالكتروني</target>
+      </trans-unit>
+      <trans-unit id=".nxjmIi" resname="Mot de Pass">
+        <source>Mot de Pass</source>
+        <target>القن السري</target>
+      </trans-unit>
+      <trans-unit id="k1RiwjQ" resname="Confirmation mot de pass">
+        <source>Confirmation mot de pass</source>
+        <target> اعادة ادخال نفس القن السري</target>
+      </trans-unit>
+      <trans-unit id="FHNqLrn" resname="Role">
+        <source>Role</source>
+        <target>درجة الاستعمال</target>
+      </trans-unit>
+      <trans-unit id="QIchCJD" resname="aucun user dans la bd">
+        <source>aucun user dans la bd</source>
+        <target>لا يوجد اي مستعمل في قاعدة البيانات</target>
+      </trans-unit>
+      <trans-unit id="l6NdGfh" resname="Vitrine">
+        <source>Vitrine</source>
+        <target>واجهة العرض</target>
+      </trans-unit>
+      <trans-unit id="4YbsNAZ" resname="Aucun article enregistré dans cette Categorie">
+        <source>Aucun article enregistré dans cette Categorie</source>
+        <target>لا يوجد اي منتوج في هذا الصنف</target>
+      </trans-unit>
+      <trans-unit id="vL93WrX" resname="Caracteristiques Techniques">
+        <source>Caracteristiques Techniques</source>
+        <target>معلومات تقنية</target>
+      </trans-unit>
+      <trans-unit id="SNitTy8" resname="Se Connecter">
+        <source>Se Connecter</source>
+        <target>رابط</target>
+      </trans-unit>
+      <trans-unit id="YmunqJ." resname="Valider">
+        <source>Valider</source>
+        <target>تسجيل</target>
+      </trans-unit>
+      <trans-unit id="J0UzhmC" resname="Des ventes de mains en mains, vers des ventes virtuelles, passent les priorités des opérations de ventes des biens et des services, ce qui nous rend obligés de donner plus d’importance à la vente électronique">
+        <source>Des ventes de mains en mains, vers des ventes virtuelles, passent les priorités des opérations de ventes des biens et des services, ce qui nous rend obligés de donner plus d’importance à la vente électronique</source>
+        <target>من البيع اليدوي إلى المبيعات الافتراضية ، قم بتحويل أولويات عمليات بيع السلع والخدمات ، مما يدفعنا إلى إعطاء أهمية أكبر للمبيعات الإلكترونية</target>
+      </trans-unit>
+      <trans-unit id="DTaLdwB" resname="Bienvenue!">
+        <source>Bienvenue!</source>
+        <target>مرحبا</target>
+      </trans-unit>
+      <trans-unit id="1WhC0wE" resname="Modifier client">
+        <source>Modifier client</source>
+        <target>تغيير معلومات زبون</target>
+      </trans-unit>
+      <trans-unit id="lI.mA.Y" resname="client">
+        <source>client</source>
+        <target>معلومات زبون</target>
+      </trans-unit>
+      <trans-unit id="lI.mA.m" resname="facture">
+        <source>facture</source>
+        <target>فاتورة</target>
+      </trans-unit>
+      <trans-unit id="lI.mA.n" resname="bon livraison">
+        <source>bon livraison</source>
+        <target>وصل</target>
+      </trans-unit>
+      <trans-unit id="lI.mA.vv" resname="Facture/Bon">
+        <source>Facture/Bon</source>
+        <target>فاتورة/وصل</target>
+      </trans-unit>
+      <trans-unit id="lI.mA.w" resname="Vous etes sur de vouloir supprimer?">
+        <source>Vous etes sur de vouloir supprimer?</source>
+        <target>هل متأكد من المسح..</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

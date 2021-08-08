@@ -1,0 +1,5 @@
+#DirectoryIndex index.php
+
+#Disallow/Deny Directory Listing
+#OPTIONS -INDEXES
+

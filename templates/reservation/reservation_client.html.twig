@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}vente par client{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div><br>
+		<h2 class="animate__animated animate__slideInRight">{% trans %}Nom Client:{% endtrans %}
+			{{client.NomClient|upper}}
+		</h2>
+		<center>
+			<button class="boutonarticle">
+				<h3 class="animate__animated animate__zoomIn">{% trans %}Liste V e n t e s:{% endtrans %}</h3>
+			</button>
+		</center>
+		<div class="liste_vente">
+			<table class="table table-dark ">
+				<thead class="thead">
+					<tr>
+						<th width='5%'>{% trans %}id{% endtrans %}</th>
+						<th width='5%'>{% trans %}date{% endtrans %}</th>
+						<th width='40%'>{% trans %}articles vendus{% endtrans %}</th>
+						<th width='10%'>{% trans %}recette{% endtrans %}</th>
+						<th width='10%'>{% trans %}avance{% endtrans %}</th>
+						<th width='10%'>{% trans %}reste{% endtrans %}</th>
+						<th width='10%'>{% trans %}facturation{% endtrans %}</th>
+						<th width='5%'>{% trans %}Detail{% endtrans %}</th>
+						<th width='5%'>{% trans %}edit{% endtrans %}</th>
+
+					</tr>
+				</thead>
+				{% if vente |length == 0 %}
+					<tbody>
+						<tr>
+							<td colspan="7" style="font-size: 24px;color:rgb(14, 221, 42) ;">
+								<center>{% trans %}
+									Aucune vente{% endtrans %}</center>
+							</td>
+						</tr>
+					</tbody>
+
+				{% else %}
+					{% for v in vente %}
+						<tbody>
+							<tr>
+								<td>{{v.id}}</td>
+								<td>{{v.dateV | date('d/m/Y')}}</td>
+								<td>
+									<table class="liste_article">
+										<thead>
+											<th style="width: 40%;">{% trans %}Article{% endtrans %}</th>
+											<th>{% trans %}Prix{% endtrans %}</th>
+											<th>{% trans %}Qte{% endtrans %}</th>
+											<th>{% trans %}Montant{% endtrans %}</th>
+										</thead>
+										{% set somme = 0 %}
+										{% for a in v.articles %}
+											{% set pr = a.prixVente*a.qte %}
+											<tbody style="background-color: crimson;text-align: left;color: gold;">
+												{% set somme = somme + pr %}
+												<td>{{a.nom}}</td>
+												<td>{{a.prixVente}}</td>
+												<td>{{a.qte}}</td>
+												<td>{{pr|number_format(2,',','')}}</td>
+											</tbody>
+										{% endfor %}
+
+									</table>
+								</td>
+								<td>
+
+									<h4 class="h_total">{{somme|number_format(2,',','')}}</h4>
+
+								</td>
+								<td>
+
+									<h4 class="h_total">{{v.avance|number_format(2,',','')}}</h4>
+
+								</td>
+								<td>
+
+									<h4 class="h_total">{{(somme-v.avance)|number_format(2,',','')}}</h4>
+
+								</td>
+								<td>
+									<a class="bouton" href="{{path( 'fa',{id:v.id})}} ">
+										<img src="{{ asset('images/factureClik.png' ) }} "/></a>
+								</td>
+								<td>
+									<a class="bouton" href="{{path( 'show_vente',{id:v.id})}} ">
+										<img src="{{ asset('images/detail.png' ) }} "/></a>
+								</td>
+								<td>
+									<a href="{{path( 'edit_vente',{id:v.id})}} ">
+										<img src="{{ asset('images/edit.png' ) }} "/></a>
+								</td>
+
+							</tr>
+						</tbody>
+						{% set m = somme %}
+						{% endfor%}
+						<tfoot>
+							<tr>
+								<td colspan="3" class="h_total">Total des ventes:</td>
+								{% set total_ventes = 0 %}
+								{% for v in vente %}
+									{% set s_total = 0 %}
+									{% for a in v.articles %}
+										{% set pr = a.prixVente*a.qte %}
+										{% set s_total = s_total + pr %}
+										{% endfor%}
+										{% set total_ventes = total_ventes + s_total %}
+										{% endfor%}
+										<td class="h_total">{{total_ventes|number_format(2,',','')}}</td>
+
+										{% set total_avance = 0 %}
+										{% for v in vente %}
+											{% set total_avance = total_avance + v.avance %}
+											{% endfor%}
+											<td class="h_total">{{total_avance|number_format(2,',','')}}</td>
+											<td class="h_total">{{(total_ventes - total_avance) |number_format(2,',','')}}</td>
+										</tr>
+
+									</tfoot>
+								
+							
+						
+					</table>
+				</div>
+			{% endif %}
+		</div>
+	{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %} {% block title %}{% trans %}Modifier une categorie{% endtrans %}{% endblock %} {% block body %}
+<br>
+<div class="container">
+    <h3 class="h4">{% trans %}Modifier une categorie{% endtrans %}</h3>
+    <br>
+    <div class="form_reponse ">
+
+        {{ form_start(form) }}
+        <table>
+            <tr>
+                <td>{{ form_label(form.nomCategorie, 'Nom Categorie:') }}</td>
+                <td>
+                    {{ form_widget(form.nomCategorie,{ 'attr': {'placeholder': " ajouter le nom d'une novelle categorie !!"} }) }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="b2" type="submit ">{% trans %}Enregistrer{% endtrans %}</button></td>
+            </tr>{{ form_end(form) }}
+        </table><br>
+    </div>
+    <br><br><br>
+</div>
+
+{% endblock %}

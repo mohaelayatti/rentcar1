@@ -1,0 +1,217 @@
+{% extends 'base1.html.twig' %} {% block title %}{% trans %}Boutique{% endtrans %}{% endblock %} {% block body %}
+<div class="cont">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="column_left">
+                <div class="card1">
+                    <p> {% trans %}Catégorie{% endtrans %} </p>
+                </div>
+                <br>
+
+                <br>
+
+            </div>
+            <div class="column_left">
+                <div class="card1">
+                    <p> {% trans %}Decouverte{% endtrans %} </p>
+                </div>
+                <br>
+                <ul style="list-style: none;line-height: 30px;font-size: medium;align-self: start;font-family: monospace;">
+                    <li>
+                        <span>>> </span>
+                        <a href="">Qualité matiére premiére</a></li>
+                    <li> <span>>> </span>
+                        <a href=""> Décoration marocaine</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href=""> Salon marocaine</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href=""> Deco Exterieur</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="column_left">
+                <div class="card1">
+                    <p> {% trans %}Video{% endtrans %} </p>
+                </div>
+                <br>
+
+                <p>
+                    <a href="https://www.youtube.com/watch?v=HAWE4fn2fEg" title="Cuir marocain de Marrakech" target="_blank" rel="nofollow">
+                        <img src="http://www.artisanat-du-sud.com/img/cuir-marrakech.png" alt="Cuir marocain de Marrakech" width="150px" height="90px" style="margin:10px 5px;"></a>
+                </p>
+
+                <p>
+                    <a href="http://www.youtube.com/watch?v=yW6wEsd8ehk" title="Table de jardin en zellige, kiosque en fer forgé" target="_blank" rel="nofollow">
+                        <img src="http://www.artisanat-du-sud.com/img/table-jardin-zellige-marocaine.png" alt="Table de jardin en zellige, kiosque en fer forgé" width="150px" height="90px" style="margin:10px 5px;"></a>
+
+                </p>
+                <p>
+                    <a href="http://www.youtube.com/watch?v=aLmBDBKVFyk" title="Tapis marocains Beni Ouarain" target="_blank" rel="nofollow">
+                        <img src="http://www.artisanat-du-sud.com/img/moroccan-beni-ouarain-carpets.png" alt="Tapis marocains Beni Ouarain" width="150px" height="90px" style="margin:10px 5px;"></a>
+                </p>
+
+            </div>
+
+            <div class="column_left">
+                <div class="card1">
+                    <p> {% trans %}Information{% endtrans %} </p>
+                </div>
+                <br>
+                <ul style="list-style: none;line-height: 30px;font-size: medium;align-self: start;font-family: monospace;">
+                    <li>
+                        <span>>> </span>
+                        <a href="">Livraison</a></li>
+                    <li> <span>>> </span>
+                        <a href="">Mentions légales</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href="">Conditions génerales des ventes</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href="">A propos</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href="">Paiement sécurisé</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="column_left">
+                <div class="card1">
+                    <p> {% trans %}Suivez Nous{% endtrans %} </p>
+                </div>
+                <br>
+                <ul style="list-style: none;line-height: 30px;font-size: medium;align-self: start;font-family: monospace;">
+                    <li>
+                        <span>>> </span>
+                        <a href="">sur Facebook</a></li>
+                    <li> <span>>> </span>
+                        <a href="">sur Twitter</a>
+                    </li>
+                    <li> <span>>> </span>
+                        <a href="">sur Google plus</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="panier">
+                <a href="#panier" data-toggle="modal">
+                    <button class="bouton1">{% trans %}Voir Panier{% endtrans %} <img
+                            src="{{ asset( 'images/panier.png') }} " alt=" "></button>
+                </a>
+            </div>
+            <div id="panier" class="modal fade ">
+                <div class="modal-dialog ">
+                    <div class="modal-content ">
+                        <div class="modal-header ">
+                            <h3>{% trans %}Mon Panier{% endtrans %}<img src="{{ asset( 'images/panier.png') }} " alt=" "></h3>
+                        </div>
+                        <div class="modal-body ">
+                            {% if items |length > 0 %}
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Article</th>
+                                        <th>Prix</th>
+                                        <th>Qté</th>
+                                        <th>total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in items %}
+                                    <tr>
+                                        <form action="{{path('home')}}" method="GET">
+                                            <td>{{item.article.nom}}</td>
+                                            <td>{{item.article.prixAchat}}</td>
+                                            <td>
+                                                <select name="qte" onchange="this.form.submit()">
+                                                    {% for i in 1..10 %}
+                                                    <option value="{{i}}" {% if i == item.quantité %}
+                                                        selected="selected" {% endif %}>{{i}}</option>
+                                                    {% endfor %}</select>&NonBreakingSpace;
+
+                                            </td>
+                                            <td>{{(item.article.prixAchat * item.quantité)|number_format(2,',','')}}
+                                            </td>
+                                            <td>
+                                                <a href="{{path('panier_remove',{'id':item.article.id})}}">
+                                                    <img src="{{ asset( 'images/delet.png') }} " alt=" ">
+                                                </a>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3" class="text-right">Total:</td>
+                                        <td>{{total|number_format(2,',','')}}</td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table><br> <button class="bouton1">{% trans %}Passer la commande{% endtrans %}
+                                <img src="{{ asset( 'images/panier.png') }} " alt=" ">
+                            </button>{% else %}
+                            <p style="font-size: x-large;color: rgb(144, 116, 116);">Panier Vide ....!!</p>{% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            </div> {% for c in categorie.articles %} {% if c|length == 0 %} <br>
+            <h1 class="h2 ">{% trans %}Aucun article enregistré dans cette Categorie{% endtrans %}</h1>
+            {% else %}
+            <div>
+                <button class="boutonarticle ">{% trans %}Categorie{% endtrans %}: {{categorie.nomCategorie|upper}}</button>
+                <div class="card h-100 ">
+                    <div class="card_nom ">{{c.nom}}</div>
+
+                    <div class="card-body ">
+                        <img id="img " class=" card-img-top " src="{{ asset( 'uploads/brochures/' ~ art.image) }} " alt=" ">
+                        <h6><span>{% trans %}Prix{% endtrans %}:</span>{{c.prixAchat}}</h6>
+                    </div>
+                    <div class="card-footer ">
+                        <a href="#show{{art.id}}" data-toggle="modal">
+                            <button class="bouton1">{% trans %}Caracteristiques Techniques{% endtrans %}</button>
+                        </a>
+                        <a href="{{path('panier_add',{'id':art.id})}}">
+                            <button class="bouton2">{% trans %}Ajouter au panier{% endtrans %}</button>
+                        </a>
+                    </div>
+                    <div id="show{{art.id}}" class="modal fade ">
+                        <div class="modal-dialog ">
+                            <div class="modal-content ">
+                                <div class="modal-header ">
+                                    <h3>{% trans %}Caracteristiques Techniques{% endtrans %}</h3>
+                                </div>
+                                <div class="modal-body ">
+                                    <p>
+                                        <span style=" color:aqua ">{{art.nom|upper}}:</span>
+                                        <span> {{art.descri}}</span>
+                                    </p>
+                                </div>
+                                <div class="modal-footer ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endif %}{% endfor %}
+        </div>
+    </div>
+</div> {% endblock %}{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous ">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous ">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous ">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js ">
+</script>
+{% endblock %}

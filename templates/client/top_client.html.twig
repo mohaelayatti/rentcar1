@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %} {% block title %}{% trans %}vitrine{% endtrans %}{% endblock %} {% block body %}
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+{% endblock %}{% block javascripts %}
+<script src="{{asset( '/gestionVente/node_modules/chart.js/dist/Chart.bundle.js' )}} ">
+</script>
+<script>
+    Chart.defaults.global.title.display = true;
+    Chart.defaults.global.title.text = 'pas de texte';
+    Chart.defaults.global.legend.align = 'center';
+</script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'pie',
+
+        // The data for our dataset
+        data: {
+            labels: {{clientNom | raw }},
+            datasets: [{
+                label: 'Nombre Ventes',
+                backgroundColor: ['rgb(255,15,10)','rgb(00,115,10)','rgb(20,15,10)','rgb(55,105,10)','rgb(15,125,100)'],
+                borderColor: 'rgb(12,12,42)',
+                data: {{reservation | raw}}
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            title: {
+                text: 'TOP Client'
+            }
+        }
+    });
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous ">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous ">
+</script>
+
+{% endblock %}

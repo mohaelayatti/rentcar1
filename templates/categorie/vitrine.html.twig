@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}vitrine{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form_reponse">
+					{{ form_start(form) }}
+					<table>
+						<tr>
+							<td>{{ form_label(form.cat,'Categorie:') }}</td>
+							<td>{{ form_widget(form.cat,{'attr' : {'onChange':'this.form.submit()'} }) }}
+							</td>
+						</tr>
+						{{ form_end(form) }}
+					</table>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="container">
+					{% if cat |length == 0 %}
+						<div class="row">
+							{% for a in art %}
+								<div class="col-md-4 col-xs-6 ">
+									<div class="product">
+										<div class="product-name">
+											<a href="">{{a.nom}}</a>
+										</div>
+										<div class="product-img">
+											<div class="product-label">
+
+												<a href="#show{{a.id}}" data-toggle="modal">
+													<button class="bouton1">{% trans %}Voir Plus{% endtrans %}</button>
+												</a>
+											</div>
+											<div class="product-promo">
+												{% if a.reduction == 0 %}
+													{% else %}
+														<img class="img1" src="{{ asset('images/wow.png' ) }}"/>
+
+														<span class="p_clign">{{a.reduction}}
+															%</span>
+
+												{% endif %}
+											</div>
+
+											<img src="{{ asset('uploads/brochures/'~ a.image) }}" alt=" ">
+										</div>
+										<div class="product-body ">
+											{% if a.reduction == 0 %}
+												<div class="product-price">{{a.prixVente}}
+													<span>{% trans %}Dhs{% endtrans %}</span>
+												</div>
+											{% else %}
+												<div class="product-price">{{(a.prixVente - (a.prixVente * a.reduction/100))|number_format(2,',','')}}
+													<span>{% trans %}Dhs{% endtrans %}</span>
+													<del class="product-old-price ">
+														{{a.prixVente}}</del>
+
+												</div>
+											{% endif %}
+
+
+										</div>
+										<div id="show{{a.id}}" class="modal fade ">
+											<div class="modal-dialog ">
+												<div class="modal-content ">
+													<div class="modal-header ">
+														<h3>{% trans %}Caracteristiques Techniques{% endtrans %}</h3>
+													</div>
+													<div class="modal-body ">
+														<p>
+															<span style=" color:aqua ">{{a.nom|upper}}:</span>
+															<span>
+																{{a.descri}}</span>
+														</p>
+													</div>
+													<div class="modal-footer "></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+				{% else %}
+					</div>
+
+					<div class="product_vitrine">
+						<h4>{% trans %}Categorie{% endtrans %}:
+							{{cat.nomCategorie|upper}}
+						</h4>
+						{% if a |length == 0 %}
+							<h6>
+								{% trans %}Aucun article enregistré dans cette Categorie{% endtrans %}
+							</h6>
+						{% else %}
+							<div class="row">
+								{% for a in a %}
+									<div class="col-md-4 col-xs-6 ">
+										<div class="product">
+											<div class="product-name">
+												<a href="">{{a.nom}}</a>
+											</div>
+											<div class="product-img">
+												<div class="product-label">
+
+													<a href="#show{{a.id}}" data-toggle="modal">
+														<button class="bouton1">{% trans %}Voir Plus{% endtrans %}</button>
+													</a>
+												</div>
+
+												<img src="{{ asset('uploads/brochures/'~ a.image) }}" alt=" ">
+											</div>
+											<div class="product-body ">
+												<div class="product-price">{{a.prixAchat}}
+													<span>{% trans %}Dhs{% endtrans %}</span>
+												</div>
+
+											</div>
+											<div id="show{{a.id}}" class="modal fade ">
+												<div class="modal-dialog ">
+													<div class="modal-content ">
+														<div class="modal-header ">
+															<h3>{% trans %}Voir Plus{% endtrans %}</h3>
+														</div>
+														<div class="modal-body ">
+															<p>
+																<span style=" color:aqua ">{{a.nom|upper}}:</span>
+																<span>
+																	{{a.descri}}</span>
+															</p>
+														</div>
+														<div class="modal-footer "></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+{% endblock %}

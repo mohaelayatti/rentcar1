@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier user
+{% endblock %}
+{% block body %}
+
+<br>
+<div class="form_reponse" style="width: 60%;margin-left: 400px;">
+    <h5 align='center'>Modifier utilisateur</h5>
+    {{ form_start(form) }} {{ form_row(form.username,{'label': 'Nom utilisateur:'}) }} {{ form_row(form.email,{'label': 'Email:'}) }} {{ form_row(form.password,{'label': 'Mot de Pass:'}) }}
+    <br>{{ form_row(form.roles,{'label': 'ROLE:'})}}
+    <button type="submit" class="btn btn-success">Enregister</button><br> {{ form_end(form) }}
+</div><br> <br> {% endblock %}

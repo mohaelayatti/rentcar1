@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}{% trans %} ajouter client{% endtrans %} {% endblock %} {% block body %}
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success" role="alert">
+		{{ message }}
+	</div>
+{% endfor %}
+
+<div class="container">
+
+    <br>
+
+
+    <div class="form_reponse ">
+        <h3 class="h3">{% trans %} ajouter client{% endtrans %}</h3>
+
+        {{ form_start(form) }}
+        <table>
+            <tr>
+                <td>{{ form_label(form.nomClient, 'Nom Client:') }}</td>
+                <td>{{ form_widget(form.nomClient,{ 'attr': {'placeholder': ""} }) }}</td>
+                <td rowspan="4"><button class="b1" type="submit ">{% trans %}Enregistrer{% endtrans %}</button></td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.adressClient, 'adress') }}</td>
+                <td>
+                    {{ form_widget(form.adressClient,{ 'attr': {'placeholder': ""} }) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.telfClient, 'telephone') }}</td>
+                <td>{{ form_widget(form.telfClient,{ 'attr': {'placeholder': ""} }) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.faxClient, 'fax') }}</td>
+                <td>{{ form_widget(form.faxClient,{ 'attr': {'placeholder': " "} }) }}</td>
+            </tr>
+            {{ form_end(form) }}
+        </table>
+
+
+    </div>
+</div>{% endblock %}

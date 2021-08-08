@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}Liste Clients{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div><br>
+		<center>
+			<button class="boutonarticle">
+				{% trans %}Liste Clients{% endtrans %}
+			</button>
+		</center>
+		<div class="liste_client">
+			<table class="table table-dark ">
+				{% if client |length == 0 %}
+					
+					<tbody>
+
+						<td colspan="6 ">{% trans %}Aucun Client dans Votre BD{% endtrans %}</td>
+
+					</tbody>
+				{% else %}
+                <thead>
+						<th>{% trans %}id{% endtrans %}</th>
+						<th>{% trans %}Nom Client{% endtrans %}</th>
+						<th>{% trans %}adress{% endtrans %}</th>
+						<th>{% trans %}telephone{% endtrans %}</th>
+						<th>{% trans %}fax{% endtrans %}</th>
+						<th>{% trans %}edit{% endtrans %}</th>
+					</thead>
+					{% for a in client %}
+						<tbody>
+							<td>{{a.id}}</td>
+							<td>{{a.nomClient}}</td>
+							<td>{{a.adressClient}}</td>
+							<td>{{a.telfClient}}</td>
+							<td>{{a.faxClient}}</td>
+
+							<td>
+								<a href=" {{path( 'edit_client',{id:a.id})}} ">
+									<img src="{{ asset( 'images/edit.png' ) }} "/></a>
+							</td>
+
+						</tbody>
+						{% endfor%}
+					{% endif %}
+				</table>
+			</div>
+		</div>
+	{% endblock %}

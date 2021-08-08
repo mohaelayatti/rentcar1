@@ -1,0 +1,60 @@
+{% extends 'base_login.html.twig' %}
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<div>
+		<div>
+			<div>
+				<video width="100%" height="80%" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+					<source src="http://gestionvente/public/videos/Mt_Baker.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="log">
+				<br>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5">
+							<h5 class="h5" align='center'>{% trans %}Registration{% endtrans %}</h5>
+							{{ form_start(form) }}<table>
+								<tr>
+									<td>{{ form_row(form.username,{'label': 'Nom Utilisateur', 'attr':{'placeholder':''}}) }}</td>
+								</tr>
+								<tr>
+									<td>
+										{{ form_row(form.email,{'label': 'Email', 'attr':{'placeholder':''}}) }}</td>
+								</tr>
+								<tr>
+									<td>{{ form_row(form.password,{'label': 'Mot de Pass', 'attr':{'placeholder':''}}) }}
+									</td>
+								</tr>
+								<tr>
+									<td>{{ form_row(form.confirm_password,{'label': 'Confirmation mot de pass', 'attr':{'placeholder':''}}) }}
+									</td>
+								</tr>
+								<tr>
+									<td >{{ form_row(form.roles,{'label': 'Type Utilisateur'}) }}</td>
+
+
+								</tr>
+								<tr>
+									<td>
+										<button type="submit" class="btn btn-success">{% trans %}Enregistrer{% endtrans %}</button>
+									</td>
+								</tr>
+
+							</table>
+							{{ form_end(form) }}<br>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+	{% endblock %}

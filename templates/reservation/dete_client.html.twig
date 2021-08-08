@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{% trans %}liste{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div><br>
+		{% set total_ventes = 0 %}
+		{% for v in vente %}
+			{% set s_total = 0 %}
+			{% for a in v.articles %}
+				{% set s_total = s_total + (a.prixVente * a.qte) %}
+				{% endfor %}
+				{% set total_ventes = total_ventes + s_total %}
+				{% endfor %}
+
+				{% set total_avance = 0 %}
+				{% for v in vente %}
+					{% set total_avance = total_avance + v.avance %}
+					{% endfor %}
+
+					<center>
+						<button class="boutonarticle">
+							<h3 class="animate__animated animate__zoomIn">{% trans %}Clients Débiteurs{% endtrans %}
+								</h3>
+
+</button>
+<ul style="float: right;margin-right: 40px;">
+	<li class="nav-item dropdown">
+		<a class="dropdown-item" href="{{ path('client_pdf' ) }} ">
+			<img src="{{ asset('images/impr.png' ) }} "/>
+			Imprimer</a>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+	</li>
+</ul>
+
+
+
+						<h4>total detes : {{(total_ventes - total_avance) |number_format(2,',','')}}</h4>
+					</center>
+					<div class="liste_vente">
+						<table class="table table-dark">
+							<thead class="thead">
+								<tr>
+									<th>{% trans %}Date Vente{% endtrans %}</th>
+									<th>{% trans %}Nom Client{% endtrans %}</th>
+									<th>{% trans %}Articles vendus{% endtrans %}</th>
+									<th>{% trans %}Montant{% endtrans %}</th>
+									<th>{% trans %}Avance{% endtrans %}</th>
+									<th>{% trans %}Reste{% endtrans %}</th>
+									<th>{% trans %}Detail{% endtrans %}</th>
+								</tr>
+							</thead>
+							{% for v in vente %}
+								{% set somme = 0 %}
+								{% for a in v.articles %}
+									{% set somme = somme + (a.prixVente*a.qte) %}
+								{% endfor %}
+								{% if somme == v.avance %}
+									{% else %}
+										<tbody>
+											<tr>
+												<td>{{v.dateV | date('d/m/Y')}}</td>
+												<td>{{v.Client.NomClient}}</td>
+												<td>
+													<table class="liste_article">
+														<thead>
+															<th style="width: 50%;">{% trans %}Article{% endtrans %}</th>
+															<th>{% trans %}Prix{% endtrans %}</th>
+															<th>{% trans %}Qté{% endtrans %}</th>
+															<th>{% trans %}S.Total{% endtrans %}</th>
+														</thead>
+														{% set somme = 0 %}
+														{% for a in v.articles %}
+
+															<tbody>
+																{% set somme = somme + (a.prixVente*a.qte) %}
+																<td>{{a.nom}}</td>
+																<td>{{a.prixVente}}</td>
+																<td>{{a.qte}}</td>
+																<td>{{(a.prixVente * a.qte)|number_format(2,',','')}}</td>
+															</tbody>
+														{% endfor %}
+
+													</table>
+												</td>
+												<td>
+													<h6 style="color:white">{{somme|number_format(2,',','')}}</h6>
+												</td>
+												<td>
+													{{v.avance|number_format(2,',','')}}
+
+												</td>
+												<td>
+													{{(somme - v.avance)|number_format(2,',','')}}
+
+												</td>
+
+												<td>
+													<a class="bouton" href="{{path( 'show_vente',{id:v.id})}} ">
+														<img src="{{ asset('images/detail.png' ) }}"/></a>
+												</td>
+											</tr>
+										</tbody>
+
+								{% endif %}
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			{% endblock %}

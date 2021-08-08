@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %} {% block title %}{% trans %}top vente{% endtrans %}{% endblock %} {% block body %}
+
+<div>
+	<canvas id="Chart3"></canvas>
+
+</div>
+<div>
+	<canvas id="Chart4"></canvas>
+
+</div>
+{% endblock %} {% block javascripts %}
+<script src="{{asset( '/gestionVente/node_modules/chart.js/dist/Chart.bundle.js' )}} ">
+</script>
+<script>
+    Chart.defaults.global.title.display = true;
+    Chart.defaults.global.title.text = 'pas de texte';
+    Chart.defaults.global.legend.align = 'center';
+</script>
+
+<script>
+	var ctx = document.getElementById('Chart4').getContext('2d');
+ var chart = new Chart(ctx, {
+       // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: {{date | raw}},
+            datasets: [{
+                label: 'chifre affaire journaliere',
+                backgroundColor: 'rgb(115,15,120)',
+                borderColor: 'rgb(12,10,42)',
+                data: {{montant| raw}}
+            }
+            
+            ]
+        },
+
+        // Configuration options go here
+        options: {
+            title: {
+                text: 'TOP Reservation'
+            }
+        }
+
+        
+    });
+   
+</script>
+
+{% endblock %}

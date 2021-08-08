@@ -1,0 +1,97 @@
+<style type="text/css">
+	table {
+		width: 100%;
+		border-collapse: effondrement;
+	}
+</style>
+
+<page backbottom="10mm">
+
+	<page_footer>
+		<h4 style="text-align: center; color: tomato;">
+			[[page_cu]] / [[page_nb]]
+		</h4>
+	</page_footer>
+	<table border="0" style="font-family:'aealarabiya';text-align: center;width:100%; ">
+		<tr>
+			<td style="width:25%;text-align: center;vertical-align: top;">
+				<img src="C:\wamp\www\electroZhiri\public\images\electro-jam1.png"/><br>
+				Adress:DR ouled belaaguid ouahat sidi brahim Marrakech<br>
+				Tel:+0212-664-08-19-91
+				<br>
+				Fax :05-24-32-10-22
+				<br>
+				<br>
+			</td>
+			<td style=" width: 30%;vertical-align: top;font-size: 18px;font-family: aefurat;text-align: right; "></td>
+			<td style="width:25%;text-align: center;vertical-align: top; ">
+				le:...................
+			</td>
+		</tr>
+
+	</table>
+
+	<table align="center ">
+		<tr>
+			<td style=" width:100%;font-family: 'aealarabiya';text-decoration:underline;font-size: 24px;text-align: center ">
+				<em>
+					<h3>Clients Debiteurs</h3>
+				</em>
+
+			</td>
+		</tr>
+	</table>
+	<table border="1 " style="text-align: center;;width:100%;font-size: 12px; ">
+		<tr style="background-color: black; color: gold; font-size: 14px; ">
+			<th>{% trans %}Nom Client{% endtrans %}</th>
+			<th>{% trans %}Date{% endtrans %}</th>
+			<th>{% trans %}Articles vendus{% endtrans %}</th>
+			<th>{% trans %}Montant{% endtrans %}</th>
+			<th>{% trans %}Avance{% endtrans %}</th>
+			<th>{% trans %}Reste{% endtrans %}</th>
+		</tr>
+		{% for v in vente %}
+			{% set somme = 0 %}
+			{% for a in v.articles %}
+				{% set somme = somme + (a.prixVente*a.qte) %}
+			{% endfor %}
+			{% if somme == v.avance %}
+				{% else %}
+					<tr>
+						<td style="width: 10%;">{{v.Client.NomClient}}</td>
+						<td style="width: 10%;">{{v.dateV | date('d/m/Y')}}</td>
+						<td style="width: 50%;">
+							<table style="text-align: left;;width:100%;font-size: 10px; ">
+								<tr style="background-color: blue; color: gold; font-size: 12px; ">
+									<td style="width: 50%;">{% trans %}Article{% endtrans %}</td>
+									<td style="width: 20%;">{% trans %}Prix{% endtrans %}</td>
+									<td style="width: 10%;">{% trans %}Qté{% endtrans %}</td>
+									<td style="width: 20%;">{% trans %}S.Total{% endtrans %}</td>
+								</tr>
+								{% set somme = 0 %}
+								{% for a in v.articles %}
+									<tr style="font-size: 12px; ">
+										{% set somme = somme + (a.prixVente * a.qte) %}
+										<td style="width: 50%;">{{a.nom}}</td>
+										<td style="width: 20%;">{{a.prixVente}}</td>
+										<td style="width: 10%;">{{a.qte}}</td>
+										<td style="width: 20%;">{{(a.prixVente * a.qte)|number_format(2,',','')}}</td>
+									</tr>
+								{% endfor %}
+							</table>
+						</td>
+						<td style="width: 10%;">
+							{{somme|number_format(2,',','')}}
+						</td>
+						<td style="width: 10%;">
+							{{v.avance|number_format(2,',','')}}
+						</td>
+						<td style="width: 10%;">
+							{{(somme - v.avance)|number_format(2,',','')}}
+						</td>
+					</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+	
+</page>
