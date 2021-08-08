@@ -20,19 +20,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CarController extends AbstractController
 {
-    
+
     /**
      * @Route("/ajout_car", name="ajout_car")
      * @param Request $request
      * @return Response
      */
-    public function ajoutCar(Request $request, FileUploader $fileUploader ,TranslatorInterface $translator)
+    public function ajoutCar(Request $request, FileUploader $fileUploader, TranslatorInterface $translator)
     {
         $car = new Car();
-        
+        //vhhjiu
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
-         if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $brochureFile */
             $brochureFile = $form->get('image')->getData();
             if ($brochureFile) {
@@ -46,41 +46,39 @@ class CarController extends AbstractController
             $em->persist($car);
             $em->flush();
             $message = $translator->trans('Vehicule bien Ajouté');
-            $this->addFlash('success',$message);
-             
-               return $this->redirectToRoute('ajout_car');
+            $this->addFlash('success', $message);
+
+            return $this->redirectToRoute('ajout_car');
         }
-     return $this->render('car/ajout_car.html.twig', [
+        return $this->render('car/ajout_car.html.twig', [
             'form' => $form->createView()
-           
+
         ]);
     }
-   
-    
+
+
     /**
      * @Route("/edit_car/{id}", name="edit_car")
      * 
      * @return Response
      */
-    public function editCar(Request $request, Car $car, FileUploader $fileUploader):Response
+    public function editCar(Request $request, Car $car, FileUploader $fileUploader): Response
     {
-       
+
         $curentImage = $car->getImage();
-         $form = $this->createForm(CarType::class, $car);
-         $form->handleRequest($request);
-                if ($form->isSubmitted() && $form->isValid()) {
-                  $image = $form->get('image')->getData();
-                                
-                            if (!is_null($image)) {
-                            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-                            $brochureFileName = $fileUploader->upload($image);
-                            $car->setImage($brochureFileName);
-             
-              
+        $form = $this->createForm(CarType::class, $car);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('image')->getData();
+
+            if (!is_null($image)) {
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $brochureFileName = $fileUploader->upload($image);
+                $car->setImage($brochureFileName);
             } else {
                 $car->setImage($curentImage);
             }
-          
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($car);
             $em->flush();
@@ -88,8 +86,8 @@ class CarController extends AbstractController
         }
         return $this->render('car/edit_car.html.twig', [
             'form' => $form->createView(),
-            'art'=> $car
-            
+            'art' => $car
+
         ]);
     }
     /**
@@ -103,22 +101,18 @@ class CarController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('liste_car');
     }
-    
+
     /**
      * @Route("/liste_car", name="liste_car")
      */
     public function listeCar()
     {
-       
+
         $cat = $this->getDoctrine()->getManager()
-        ->getRepository(Categorie::class)->findAll();
+            ->getRepository(Categorie::class)->findAll();
 
         return $this->render('car/liste_car.html.twig', [
             'cat' => $cat
         ]);
     }
-
-   
-    
-
 }
